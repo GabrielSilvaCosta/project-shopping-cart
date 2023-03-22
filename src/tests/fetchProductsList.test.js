@@ -23,7 +23,7 @@ describe("Teste a função fetchProductsList", () => {
   it('fetch e chamado com argumento, "computador", estrutura de dados igual "computadorSearch" ', async () => {
     const query = 'computador';
     const { results } = await fetchProductsList(query);
-    expect(results).toEqual(computadorSearch);
+    expect(results).toEqual(computadorSearch.results);
   });
 
   it('fetch e chamado sem argumento, retorna um erro com a mensgaem  "Termo de busca não informado" ', async () => {
