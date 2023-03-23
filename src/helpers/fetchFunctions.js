@@ -14,7 +14,7 @@ async function exibirDados() {
   // renomeamos este productID com o primeiro
   // e o mesmo
   const product = await fetchProduct(productID);
-  console.log(product);
+  return product;
 }
 
 exibirDados();
