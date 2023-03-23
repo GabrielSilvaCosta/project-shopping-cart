@@ -1,6 +1,23 @@
-export const fetchProduct = () => {
-  // seu código aqui
-};
+export async function fetchProduct(ProductID) {
+  if (!ProductID) {
+    throw new Error('ID não informado');
+  }
+
+  const response = await fetch(
+    `https://api.mercadolibre.com/items/${ProductID}`,
+  );
+  const data = await response.json();
+  return data;
+}
+async function exibirDados() {
+  const productID = 'MLB1405519561';
+  // renomeamos este productID com o primeiro
+  // e o mesmo
+  const product = await fetchProduct(productID);
+  console.log(product);
+}
+
+exibirDados();
 
 export async function fetchProductsList(query) {
   // query e usado para pesquisar a
