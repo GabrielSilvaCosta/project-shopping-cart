@@ -9,8 +9,8 @@ const products = await fetchProductsList('computador');
 
 // criei um elemento html para cada produto utilizando a função
 // createProductElement(), com o forEach para cada elemento e adicionamo
-const productsSection = document.querySelector('.products');
-products.forEach((product) => {
-  const productElement = createProductElement(product);
-  productsSection.appendChild(productElement);
+const produto = document.querySelector('.products');
+products.forEach((element) => {
+  const elemento = createProductElement(element);
+  produto.appendChild(elemento);
 });

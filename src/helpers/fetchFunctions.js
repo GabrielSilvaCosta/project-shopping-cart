@@ -3,6 +3,8 @@ export const fetchProduct = () => {
 };
 
 export async function fetchProductsList(query) {
+  // query e usado para pesquisar a
+  // pesquisa especifica do ususario
   if (!query) {
     throw new Error('Termo de busca não informado');
   }
