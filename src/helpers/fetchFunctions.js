@@ -1,3 +1,5 @@
+// import { showLoading, hideLoading } from 'main';
+
 export async function fetchProduct(ProductID) {
   if (!ProductID) {
     throw new Error('ID não informado');
@@ -9,6 +11,7 @@ export async function fetchProduct(ProductID) {
   const data = await response.json();
   return data;
 }
+
 async function exibirDados() {
   const productID = 'MLB1405519561';
   // renomeamos este productID com o primeiro
@@ -25,7 +28,6 @@ export async function fetchProductsList(query) {
   if (!query) {
     throw new Error('Termo de busca não informado');
   }
-
   const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
 
   const response = await fetch(endpoint);
