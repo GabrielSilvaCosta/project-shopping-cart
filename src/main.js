@@ -14,6 +14,14 @@ const removeLoadingElement = () => {
     loadingElement.remove();
   }
 };
+// requisito 5
+const messageError = (elemento) => {
+  const newElement = document.createElement('p');
+  newElement.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
+  newElement.classList.add('error');
+  elemento.appendChild(newElement);
+  return newElement;
+};
 // requisito 3
 document.querySelector('.cep-button').addEventListener('click', searchCep);
 // chamamos a função 'fetchProductsList' passando o parametro computador
@@ -30,6 +38,15 @@ fetchProductsList('computador').then((products) => {
   });
   removeLoadingElement();
 }).catch((error) => {
-  console.error(error);
+  console.error(error.messageError);
   removeLoadingElement();
+  messageError(produto);
 });
+
+// const messageError = () => {
+//   const newElement = document.createElement('p');
+//   newElement.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
+//   newElement.classList = 'Error';
+//   produto.appendChild(newElement);
+// };
+// messageError();
