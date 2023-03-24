@@ -1,5 +1,6 @@
 import { searchCep } from './helpers/cepFunctions';
-import { createProductElement, createCustomElement } from './helpers/shopFunctions';
+import { createProductElement, createCustomElement,
+} from './helpers/shopFunctions';
 import { fetchProductsList } from './helpers/fetchFunctions';
 import './style.css';
 // requisto 4
@@ -42,11 +43,4 @@ fetchProductsList('computador').then((products) => {
   removeLoadingElement();
   messageError(produto);
 });
-
-// const messageError = () => {
-//   const newElement = document.createElement('p');
-//   newElement.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
-//   newElement.classList = 'Error';
-//   produto.appendChild(newElement);
-// };
-// messageError();
+// requisito 9;
