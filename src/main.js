@@ -1,7 +1,8 @@
 import { searchCep } from './helpers/cepFunctions';
-import { createProductElement, createCustomElement,
-} from './helpers/shopFunctions';
-import { fetchProductsList } from './helpers/fetchFunctions';
+import { createProductElement, createCustomElement, createCartProductElement }
+  from './helpers/shopFunctions';
+import { getSavedCartIDs } from './helpers/cartFunctions';
+import { fetchProductsList, fetchProduct } from './helpers/fetchFunctions';
 import './style.css';
 // requisto 4
 const addLoading = (parentElement) => {
@@ -16,6 +17,7 @@ const removeLoadingElement = () => {
   }
 };
 // requisito 5
+// // Define a função messageError que recebe um elemento como parâmetro
 const messageError = (elemento) => {
   const newElement = document.createElement('p');
   newElement.innerText = 'Algum erro ocorreu, recarregue a página e tente novamente';
@@ -43,4 +45,21 @@ fetchProductsList('computador').then((products) => {
   removeLoadingElement();
   messageError(produto);
 });
-// requisito 9;
+
+// requisito 9
+const loadSaved = async () => {
+  try {
+    const savedCart = getSavedCartIDs();
+    const promises = savedCart.map((id) => fetchProduct(id));
+    const products = await Promise.all(promises);
+    const cartContainer = document.querySelector('.cart__products');
+    products.forEach((element) => {
+      const productElement = createCartProductElement(element);
+      cartContainer.appendChild(productElement);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+window.onload = loadSaved;
