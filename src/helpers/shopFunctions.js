@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
-import { removeCartID, saveCartID, getSavedCartIDs } from './cartFunctions';
-import { fetchProduct, fetchProductsList } from './fetchFunctions';
+import { removeCartID, saveCartID } from './cartFunctions';
+import { fetchProduct } from './fetchFunctions';
 
 // Esses comentários que estão antes de cada uma das funções são chamados de JSdoc,
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições!
@@ -135,42 +135,3 @@ export const createProductElement = ({ id, title, thumbnail, price }) => {
 
   return section;
 };
-// requsito 10
-// function getTotalPrice() {
-//   const totalPrice = document.querySelector('.total-price');
-//   const prices = getSavedCartIDs().map((id) => {
-//     const product = getProductById(id);
-//     return product ? product.price : 0;
-//   });
-//   totalPrice.innerText = prices.reduce((acc, cur) => acc + cur, 0);
-// }
-
-// function removeCartProduct(li, id) {
-//   li.remove();
-//   removeCartID(id);
-//   getTotalPrice();
-// }
-
-// function enableButtons() {
-//   const buttons = document.querySelectorAll('.product__add');
-//   buttons.forEach((button) => {
-//     button.addEventListener('click', () => {
-//       const id = button.getAttribute('id');
-//       const cartItem = getProductById(id);
-//       if (cartItem) {
-//         addCartID(id);
-//         const li = createCartItemElement(cartItem);
-//         carts.appendChild(li);
-//         getTotalPrice();
-//       }
-//     });
-//   });
-// }
-
-// function init() {
-//   enableButtons();
-//   renderCartItems();
-//   getTotalPrice();
-// }
-
-// init();
