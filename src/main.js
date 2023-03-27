@@ -5,6 +5,8 @@ import { getSavedCartIDs } from './helpers/cartFunctions';
 import { fetchProductsList, fetchProduct } from './helpers/fetchFunctions';
 import './style.css';
 // requisto 4
+// // Define a função addLoading que recebe um elemento pai como parâmetro
+// e cria os elementos, e se tornam filho de parentElement
 const addLoading = (parentElement) => {
   const loadingElement = createCustomElement('div', 'loading', 'Carregando...');
   parentElement.appendChild(loadingElement);
@@ -63,3 +65,5 @@ const loadSaved = async () => {
 };
 
 window.onload = loadSaved;
+//-----------------------------------------------------------------------
+//----------------------------------------------------------------------
