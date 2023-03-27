@@ -30,7 +30,7 @@ export const searchCep = () => {
     } else {
       displayCep.innerHTML = address;
     }
-  }).catch((err) => {
-    displayCep.innerHTML = err.message;
+  }).catch((error) => {
+    displayCep.innerHTML = error.message;
   });
 };
